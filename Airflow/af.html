@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Apache Airflow</title></head>
+<body>
+<center><H2>Key Concepts</h2></center>
+<div id="right" style="position:absolute;right:20px;">Navigation</div>
+<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\dg.png" style="margin:20px;"/>
+<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\aa.png" style="margin:20px;"/>
+<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\Capture.png" style="margin:20px;"/>
+<div id = "left">
+<iframe src="https://airflow.apache.org/docs/apache-airflow/stable/concepts.html"
+height="550" width="990"></iframe></div>
+
+<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\ao.png" style="margin:20px;"/>
+<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\compo.png" style="margin:20px;"/>
+<div id="work0" style="margin:40px;"><p>
+<h2><b>ACCESS CONTROL</b></h2>
+Access Control of Airflow Webserver UI is handled by Flask AppBuilder (FAB)
+<ul><li>Default Roles</li>: Airflow ships with a set of roles by default: Admin, User, Op, Viewer, and Public. Only Admin users could configure/alter the permissions for other roles. But it is not recommended that Admin users alter these default roles in any way by removing or adding permissions to these roles.
+<ol><li>Admin</li>:Admin users have all possible permissions, including granting or revoking permissions from other users.
+<li>Public</li>:Public users (anonymous) don't have any permissions.
+<li>Viewer</li>:Viewer users have limited viewer permissions
+<li>User</li>:User users have Viewer permissions plus additional user permissions on User web views which is the same as Viewer web views.
+<li>Op</li>:Op users have User permissions plus additional op permissions on User web views.</ol>
+<li>Custom Roles</li>:(DAG Level Role)
+Admin can create a set of roles which are only allowed to view a certain set of dags. This is called DAG level access. Each dag defined in the dag model table is treated as a View which has two permissions associated with it (can_read and can_edit. can_dag_read and can_dag_edit are deprecated since 2.0.0). There is a special view called DAGs (it was called all_dags in versions 1.10.*) which allows the role to access all the dags. The default Admin, Viewer, User, Op roles can all access DAGs view.<br></ul>
+<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\perm.png" style="margin:20px;"/><br></div>
+<div id= "work1" style="margin:40px"><p>
+Airflow (adding read/write permissions of DAGs or users to list of roles and creating new role):-
+<br>
+0.Login to Airflow(respective environment) using novartis cred.<br>
+1.A list of DAGs will appear in home page.<br>
+2.In the navigation bar, click on the security drop down and click List Roles to see the list of roles or to add new role if it does not exist.<br>
+3.<br>
+a.To add read/write permission or user to already existing role:<br>
+i. Search for the use case(role name) by using pagination or filter.<br>
+ii. There will be 3 icons(show, edit, delete) corresponding to each use case. Click on show to view the role details, click on edit to add users or to give permissions for dags. Do not delete any role.<br>
+iii. Upon clicking edit icon we can give dag permissions by inserting read/write+dag name in Permissions and selecting from the suggestions, add user name to User by inserting username and selecting from given suggestion while 
+making sure that we select from suggestions only and that if the dagname+permission or username does not show up in suggestion that means that the dag/user is not available. Click SAVE button to save the edit.<br>
+<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\addrole.png" style="margin:20px;"/><br>
+/**You can also create roles via the CLI using the airflow roles create command, e.g.:<br>
+airflow roles create Role1 Role2<br>
+And we could assign the given role to a new user using the airflow users add-role CLI command. **/ <br>
+iv. If the user is not available then we need to ask the user to login to the application in required environment
+atleast once, for us to add the user to specific role. If a dag is not available we need to inform the same to the user.<br>
+b. To create new role:<br>
+i. '+' symbol beside the pagination is the button for adding non existing roles.
+Click on that symbol to do the same.<br>
+ii. Give Name of the role and Save it and land back to list roles and refresh the page if the default dags do not show up.<br>
+iii. The new role is created, now we can add read/write permission or user to the newly created role.<br>
+</p></div>
+<br>
+<div id="work2" style="margin:40px;">To mark failed jobs/tasks as success:-<br>
+0. Login to the Airflow application in respective environment using novartis cred.<br>
+1. List of DAGs will appear in the homepage.User will provide required dag name and run date. Select the required dag. A tree representation of the DAG that spans across time. If a pipeline is late, you can quickly see where the different steps are and identify the blocking ones.<br>
+2. In the tree view of that dag, the circular objects represents jobs and upon hovering on each object we can see run date. Click on the circular object of required run date. A dialog box will appear. 
+Mark success/ clear as per requirement.  The DAGs/tasks with a black border are scheduled runs, whereas the non-bordered DAGs/tasks are manually triggered, i.e. by airflow dags trigger. Click close.<br>
+3. The square boxes represent tasks. Click on the square object of required task and run date. A task instance context menu will appear, select the required task instances/dependencies according to the operation(run/clear/mark failed/mark success) 
+accordingly.
+<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\ti.png" style="margin:20px;"/><br>
+//In case of confusion ask guidance from user<br></div>
+</body>
+</html>

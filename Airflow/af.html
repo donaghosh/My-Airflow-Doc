@@ -4,15 +4,15 @@
 <body>
 <center><H2>Key Concepts</h2></center>
 <div id="right" style="position:absolute;right:20px;">Navigation</div>
-<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\dg.png" style="margin:20px;"/>
+<img src="https://raw.githubusercontent.com/donaghosh/My-Airflow-Doc/main/Airflow/dg.PNG" style="margin:20px;"/>
 <img src="https://raw.githubusercontent.com/donaghosh/My-Airflow-Doc/main/Airflow/aa.PNG" style="margin:20px;"/>
-<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\Capture.png" style="margin:20px;"/>
+<img src="https://raw.githubusercontent.com/donaghosh/My-Airflow-Doc/main/Airflow/Capture.PNG" style="margin:20px;"/>
 <div id = "left">
 <iframe src="https://airflow.apache.org/docs/apache-airflow/stable/concepts.html"
 height="550" width="990"></iframe></div>
 
-<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\ao.png" style="margin:20px;"/>
-<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\compo.png" style="margin:20px;"/>
+<img src="https://raw.githubusercontent.com/donaghosh/My-Airflow-Doc/main/Airflow/ao.PNG" style="margin:20px;"/>
+<img src="https://raw.githubusercontent.com/donaghosh/My-Airflow-Doc/main/Airflow/compo.PNG" style="margin:20px;"/>
 <div id="work0" style="margin:40px;"><p>
 <h2><b>ACCESS CONTROL</b></h2>
 Access Control of Airflow Webserver UI is handled by Flask AppBuilder (FAB)
@@ -24,7 +24,7 @@ Access Control of Airflow Webserver UI is handled by Flask AppBuilder (FAB)
 <li>Op</li>:Op users have User permissions plus additional op permissions on User web views.</ol>
 <li>Custom Roles</li>:(DAG Level Role)
 Admin can create a set of roles which are only allowed to view a certain set of dags. This is called DAG level access. Each dag defined in the dag model table is treated as a View which has two permissions associated with it (can_read and can_edit. can_dag_read and can_dag_edit are deprecated since 2.0.0). There is a special view called DAGs (it was called all_dags in versions 1.10.*) which allows the role to access all the dags. The default Admin, Viewer, User, Op roles can all access DAGs view.<br></ul>
-<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\perm.png" style="margin:20px;"/><br></div>
+<img src="https://raw.githubusercontent.com/donaghosh/My-Airflow-Doc/main/Airflow/perm.PNG" style="margin:20px;"/><br></div>
 <div id= "work1" style="margin:40px"><p>
 Airflow (adding read/write permissions of DAGs or users to list of roles and creating new role):-
 <br>
@@ -37,7 +37,7 @@ i. Search for the use case(role name) by using pagination or filter.<br>
 ii. There will be 3 icons(show, edit, delete) corresponding to each use case. Click on show to view the role details, click on edit to add users or to give permissions for dags. Do not delete any role.<br>
 iii. Upon clicking edit icon we can give dag permissions by inserting read/write+dag name in Permissions and selecting from the suggestions, add user name to User by inserting username and selecting from given suggestion while 
 making sure that we select from suggestions only and that if the dagname+permission or username does not show up in suggestion that means that the dag/user is not available. Click SAVE button to save the edit.<br>
-<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\addrole.png" style="margin:20px;"/><br>
+<img src="https://raw.githubusercontent.com/donaghosh/My-Airflow-Doc/main/Airflow/addrole.PNG" style="margin:20px;"/><br>
 /**You can also create roles via the CLI using the airflow roles create command, e.g.:<br>
 airflow roles create Role1 Role2<br>
 And we could assign the given role to a new user using the airflow users add-role CLI command. **/ <br>
@@ -57,7 +57,7 @@ iii. The new role is created, now we can add read/write permission or user to th
 Mark success/ clear as per requirement.  The DAGs/tasks with a black border are scheduled runs, whereas the non-bordered DAGs/tasks are manually triggered, i.e. by airflow dags trigger. Click close.<br>
 3. The square boxes represent tasks. Click on the square object of required task and run date. A task instance context menu will appear, select the required task instances/dependencies according to the operation(run/clear/mark failed/mark success) 
 accordingly.
-<img src="C:\Users\ghoshdo1\OneDrive - Novartis Pharma AG\Desktop\Airflow\ti.png" style="margin:20px;"/><br>
+<img src="https://raw.githubusercontent.com/donaghosh/My-Airflow-Doc/main/Airflow/ti.PNG" style="margin:20px;"/><br>
 //In case of confusion ask guidance from user<br></div>
 </body>
 </html>

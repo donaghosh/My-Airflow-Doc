@@ -51,6 +51,7 @@ iii. The new role is created, now we can add read/write permission or user to th
 </p></div>
 <br>
 <div id="work2" style="margin:40px;">To mark failed jobs/tasks as success:-<br>
+//Marking task instances as failed can be done through the UI. This can be used to stop running task instances. Marking task instances as successful can be done through the UI. This is mostly to fix false negatives, or for instance, when the fix has been applied outside of Airflow.<br>  
 0. Login to the Airflow application in respective environment using novartis cred.<br>
 1. List of DAGs will appear in the homepage.User will provide required dag name and run date. Select the required dag. A tree representation of the DAG that spans across time. If a pipeline is late, you can quickly see where the different steps are and identify the blocking ones.<br>
 2. In the tree view of that dag, the circular objects represents jobs and upon hovering on each object we can see run date. Click on the circular object of required run date. A dialog box will appear. 
@@ -58,6 +59,50 @@ Mark success/ clear as per requirement.  The DAGs/tasks with a black border are 
 3. The square boxes represent tasks. Click on the square object of required task and run date. A task instance context menu will appear, select the required task instances/dependencies according to the operation(run/clear/mark failed/mark success) 
 accordingly.
 <img src="https://raw.githubusercontent.com/donaghosh/My-Airflow-Doc/main/Airflow/ti.PNG" style="margin:20px;"/><br>
-//In case of confusion ask guidance from user<br></div>
+<b>To give user the access to mark success/failure:</b><br>
+Select the required use case and add can dagrun failed on Airflow/can dagrun success on Airflow accordingly to the permissions and save it.<br></div>
+  <div id="work3" style="margin:40px;"><h2>Creating folder:</h2><br>
+0. Connect to server using putty:<br>
+servers for putty:<br>
+dev:<br>
+glgbln-sd911495.eu.novartis.net<br>
+glgbln-sd911389.eu.novartis.net<br>
+glgbln-sd911467.eu.novartis.net<br>
+glgbln-sd911337.eu.novartis.net<br>
+<br>
+QA:<br>
+GLGBLN-ST914482.eu.novartis.net<br>
+GLGBLN-ST914365.eu.novartis.net<br>
+GLGBLN-ST914351.eu.novartis.net<br>
+GLGBLN-ST914474.eu.novartis.net<br>
+<br>
+PROD:<br>
+GLGBLN-SP919491.eu.novartis.net<br>
+GLGBLN-SP919536.eu.novartis.net<br>
+GLGBLN-SP919535.eu.novartis.net<br>
+GLGBLN-SP919371.eu.novartis.net<br>
+1. Login using novartis cred.<br>
+2. Change settings for connection timeout(60).<br>
+3. Switch user commands:<br>
+dzdo su - sys_f1_de_dev<br>
+dzdo su - sys_f1_de_qa<br>
+dzdo su - sys_f1_de_prod<br>
+4. cat the path to find the folder in which dags are present<br>
+commands:<br>
+PROD:  sh -x /f1_deng_prod/airflow/admin_scripts/create_dag_dir.sh ghcr-worldbank sys_f1_devops<br>
+<br>
+folder: /f1_deng_prod/airflow/dags<br>
+<br>
+QA :   sh -x /f1_deng_qa/airflow/admin_scripts/create_dag_dir.sh ghcr-worldbank sys_f1_devops<br>
+<br>
+folder: /f1_deng_qa/airflow/dags<br>
+<br>
+DEV:   sh -x /airflow/dags/admin_scripts/create_dag_dir.sh dice sys_f1_devops <br>
+<br>
+folder: /airflow/dags/etl-framework-dags<br>
+5. cd to the folder to ll the dags present in the folder<br>
+6. run the command in step 4 specific to the environment.<br>
+7. Check (ll) again for the dag creation in that folder.<br>
+8. End the session.<br></div>
 </body>
 </html>

@@ -30,6 +30,7 @@ Admin can create a set of roles which are only allowed to view a certain set of 
 <div id= "work1" style="margin:40px"><p>
 Airflow (adding read/write permissions of DAGs or users to list of roles and creating new role):-
 <br>
+/* In dev we can provide edit access to all, in prod we can only provide readonly access and in qa we can provide edit access to maximum two users and rest will have readonly access*/<br>
 0.Login to Airflow(respective environment) using novartis cred.<br>
 1.A list of DAGs will appear in home page.<br>
 2.In the navigation bar, click on the security drop down and click List Roles to see the list of roles or to add new role if it does not exist.<br>
